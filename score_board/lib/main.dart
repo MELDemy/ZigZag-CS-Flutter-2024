@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ScoreBoard',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Scoreboard'),
     );
   }
 }
@@ -31,13 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: VerticalDivider(
-                    color: Colors.red,
+                    color: Colors.blue,
                     thickness: 1,
                   ),
                 ),
@@ -68,12 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          SizedBox(height: 20,),
+          ElevatedButton.icon(
+            onPressed: (){
+              setState(() {
+                team1_Widget.score=0;
+                team2_Widget.score=0;
+              });
+            },
+            icon: Icon(Icons.restart_alt),
+            label: Text('RESET'),
+          )
+
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
