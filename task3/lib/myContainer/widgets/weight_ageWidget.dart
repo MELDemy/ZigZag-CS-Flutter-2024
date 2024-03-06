@@ -6,13 +6,13 @@ class weight_ageWidget extends StatefulWidget {
 
   String type;
   EdgeInsets? padding;
+  int value =65;
 
   @override
   State<weight_ageWidget> createState() => _weight_ageWidgetState();
 }
 
 class _weight_ageWidgetState extends State<weight_ageWidget> {
-  int value =65;
   @override
   Widget build(BuildContext context) {
     return myContainer(
@@ -21,19 +21,19 @@ class _weight_ageWidgetState extends State<weight_ageWidget> {
           child: Column(
             children: [
               MyText(widget.type),
-              MyText(value.toString()),
+              MyText(widget.value.toString()),
               Row(
                 children: [
                   IconButton(
                     icon: Icon(Icons.add),
                     onPressed: (){
-                      setState(() {value+=1;});
+                      setState(() {widget.value+=1;});
                     },
                   ),
                   IconButton(
                     icon: Icon(Icons.remove),
                     onPressed: (){
-                      setState(() {value-=1;});
+                      setState(() {widget.value-=1;});
                     },
                   ),
                 ],

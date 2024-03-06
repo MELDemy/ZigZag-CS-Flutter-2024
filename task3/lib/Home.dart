@@ -6,9 +6,20 @@ import 'myContainer/widgets/heightWidget.dart';
 import 'myContainer/widgets/weight_ageWidget.dart';
 
 class Home extends StatefulWidget {
-  Home({super.key, required this.title});
+  Home({super.key});
 
-  final String title;
+   String title="BMI Calculator";
+
+  weight_ageWidget weight = weight_ageWidget(
+  type: "Weight",
+  padding: EdgeInsets.symmetric(horizontal: 20),
+  );
+
+  weight_ageWidget age=weight_ageWidget(
+  type: "Age",
+  padding: EdgeInsets.symmetric(horizontal: 40),
+  );
+
 
   Male_FemaleWidget MaleWidget = Male_FemaleWidget(
     gender: "Male",
@@ -47,17 +58,11 @@ class _HomeState extends State<Home> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                weight_ageWidget(
-                  type: "Weight",
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-                weight_ageWidget(
-                  type: "Age",
-                  padding: EdgeInsets.symmetric(horizontal: 40),
-                ),
+                widget.weight,
+                widget.age,
               ],
             ),
-            CalculateWidget(),
+            CalculateWidget(weight: widget.weight.value,),
           ],
         ),
       ),

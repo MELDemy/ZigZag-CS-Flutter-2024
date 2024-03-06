@@ -4,8 +4,9 @@ import 'package:task3/Home.dart';
 import 'package:task3/myContainer/myContainer.dart';
 
 class CalculateWidget extends StatefulWidget {
-  const CalculateWidget({super.key});
+   CalculateWidget({super.key,required this.weight});
 
+  int weight;
   @override
   State<CalculateWidget> createState() => _CalculateWidgetState();
 }
@@ -23,8 +24,8 @@ class _CalculateWidgetState extends State<CalculateWidget> {
           )
       ),
       onPressed: (){
-        Navigator.pushReplacement(context,MaterialPageRoute<void>(
-          builder: (BuildContext context) => DataPage(),
+        Navigator.push(context,MaterialPageRoute<void>(
+          builder: (BuildContext context) => DataPage(weight: widget.weight),
         ),);
       },
     );

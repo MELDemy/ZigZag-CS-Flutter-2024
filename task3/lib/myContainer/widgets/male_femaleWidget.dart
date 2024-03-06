@@ -13,18 +13,26 @@ class Male_FemaleWidget extends StatefulWidget {
 }
 
 class _Male_FemaleWidgetState extends State<Male_FemaleWidget> {
+  Color col= Colors.green;
   @override
   Widget build(BuildContext context) {
-    return myContainer(
-      padding: widget.padding,
-        contains: Center(
-          child: Column(
-              children: [
-                Icon(widget.genderIcon,size: 80,),
-                MyText(widget.gender)
-              ],
-              ),
-        ),
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          col= Colors.red;
+        });
+      },
+      child: myContainer(
+        padding: widget.padding,
+          contains: Center(
+            child: Column(
+                children: [
+                  Icon(widget.genderIcon,size: 80,),
+                  MyText(widget.gender)
+                ],
+                ),
+          ),
+      ),
     );
   }
   Text MyText(String text) {

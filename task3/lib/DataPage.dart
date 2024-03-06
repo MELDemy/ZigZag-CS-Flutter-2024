@@ -3,7 +3,9 @@ import 'package:task3/Home.dart';
 import 'package:task3/myContainer/myContainer.dart';
 
 class DataPage extends StatefulWidget {
-  DataPage({super.key});
+  DataPage({super.key,required this.weight});
+
+  int weight;
   @override
   State<DataPage> createState() => _DataPageState();
 }
@@ -20,7 +22,7 @@ class _DataPageState extends State<DataPage> {
               Text("Data",style: TextStyle(fontSize: 25),),
               textcontainer("Gender: "),
               textcontainer("Height: "),
-              textcontainer("Weight: "),
+              textcontainer("Weight: ${widget.weight} "),
               textcontainer("age: "),
               textcontainer("BMI: "),
             ],

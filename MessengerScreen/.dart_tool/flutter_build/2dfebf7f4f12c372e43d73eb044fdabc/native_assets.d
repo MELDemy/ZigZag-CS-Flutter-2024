@@ -1,0 +1,1 @@
+ D:\\flutter\\zigzag_cs_flutter_2024\\MessengerScreen\\.dart_tool\\flutter_build\\2dfebf7f4f12c372e43d73eb044fdabc\\native_assets.yaml: 
